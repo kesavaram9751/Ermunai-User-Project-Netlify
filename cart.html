@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Basic SEO Meta Tags -->
+  <title>My cart - Ermunai Organic Farm Foods | 100% Organic & Ready-to-Cook Products in India</title>
+  <meta name="description"
+    content="Buy 100% organic, natural, and chemical-free farm foods from Ermunai Organic Farm Foods. Explore our range of ready-to-cook and ready-to-eat organic products, delivered fresh across India.">
+  <meta name="keywords"
+    content="organic food India, Ermunai Organic, organic farm foods, ready to cook, organic groceries, natural farm produce">
+  <meta name="author" content="Ermunai Organic Farm Foods">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://ermunaiorganicfarmfoods.com/">
+  <meta property="og:title" content="Ermunai Organic Farm Foods | 100% Organic & Ready-to-Cook Products">
+  <meta property="og:description"
+    content="Ermunai Organic Farm Foods brings you healthy, natural, and organic products directly from farm to table.">
+  <meta property="og:url" content="https://ermunaiorganicfarmfoods.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ermunaiorganicfarmfoods.com/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #faf9f7;
+      color: #333;
+    }
+
+    header {
+      padding: 20px 40px;
+      background: #fff;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h2 {
+      font-size: 20px;
+      color: #244021;
+    }
+
+    .cart-container {
+      display: flex;
+      gap: 30px;
+      padding: 30px 40px;
+      align-items: flex-start;
+    }
+
+    /* Cart Items */
+    .cart-items {
+      flex: 2;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      border-bottom: 1px solid #eee;
+      padding: 15px 0;
+    }
+
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+
+    .cart-item img {
+      width: 120px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 15px;
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .category-tag {
+      display: inline-block;
+      background: #f0f5e6;
+      color: #2f6f31;
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 15px;
+      margin-bottom: 6px;
+    }
+
+    .item-details h3 {
+      font-size: 16px;
+      color: #222;
+      margin-bottom: 4px;
+    }
+
+    .item-details p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+      gap: 10px;
+    }
+
+    .quantity-control button {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #f9f9f9;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .quantity-control span {
+      min-width: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .item-price {
+      text-align: right;
+      min-width: 120px;
+    }
+
+    .item-price p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .item-price h4 {
+      font-size: 16px;
+      color: #2f6f31;
+    }
+
+    .remove-btn {
+      cursor: pointer;
+      color: #777;
+      font-size: 16px;
+      margin-left: 10px;
+    }
+
+    /* Order Summary */
+    .order-summary {
+      flex: 1;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+    }
+
+    .order-summary h3 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    .summary-item {
+      display: flex;
+      justify-content: space-between;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    .summary-item.total {
+      font-weight: bold;
+      font-size: 16px;
+      color: #2f6f31;
+      border-top: 1px solid #eee;
+      padding-top: 10px;
+    }
+
+    .checkout-btn {
+      width: 100%;
+      background: #2f6f31;
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    .checkout-btn:hover {
+      background: #244021;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h2>🛒 My Cart</h2>
+    <a href="shop.html">Continue Shopping</a>
+  </header>
+
+  <div class="cart-container">
+    <!-- Cart Items -->
+    <div class="cart-items" id="cartItems"></div>
+
+    <!-- Order Summary -->
+    <div class="order-summary" id="orderSummary">
+      <h3>Order Summary</h3>
+      <div class="summary-item"><span>Subtotal</span> <span id="subtotal">₹0</span></div>
+      <div class="summary-item"><span>Tax (5%)</span> <span id="tax">₹0</span></div>
+      <div class="summary-item"><span>Shipping</span> <span id="shipping">Free</span></div>
+      <div class="summary-item total"><span>Total</span> <span id="total">₹0</span></div>
+      <button class="checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+    </div>
+  </div>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    function renderCart() {
+      const cartItems = document.getElementById("cartItems");
+      const subtotalEl = document.getElementById("subtotal");
+      const taxEl = document.getElementById("tax");
+      const totalEl = document.getElementById("total");
+
+      cartItems.innerHTML = "";
+      let subtotal = 0;
+
+      cart.forEach((item, index) => {
+        subtotal += item.price * (item.qty || 1);
+
+        cartItems.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}">
+            <div class="item-details">
+              <span class="category-tag">${item.category || "Product"}</span>
+              <h3>${item.name}</h3>
+              <p>${item.description || ""}</p>
+              <div class="quantity-control">
+                <button onclick="updateQty(${index}, -1)">-</button>
+                <span>${item.qty || 1}</span>
+                <button onclick="updateQty(${index}, 1)">+</button>
+              </div>
+            </div>
+            <div class="item-price">
+              <p>₹${item.price} each</p>
+              <h4>₹${item.price * (item.qty || 1)}</h4>
+              <i class="fa fa-trash remove-btn" onclick="removeItem(${index})"></i>
+            </div>
+          </div>
+        `;
+      });
+
+      let tax = subtotal * 0.05;
+      let shipping = subtotal > 0 ? "Free" : "₹0";
+      let total = subtotal + tax;
+
+      subtotalEl.textContent = "₹" + subtotal;
+      taxEl.textContent = "₹" + Math.round(tax);
+      totalEl.textContent = "₹" + Math.round(total);
+    }
+
+    function updateQty(index, change) {
+      cart[index].qty = (cart[index].qty || 1) + change;
+      if (cart[index].qty < 1) cart[index].qty = 1;
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    function removeItem(index) {
+      cart.splice(index, 1);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      renderCart();
+    }
+
+    document.getElementById("checkout-btn").addEventListener("click", () => {
+      // optional: check if cart is non-empty
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      // redirect to checkout.html
+      window.location.href = "checkout.html";
+    });
+
+    renderCart();
+  </script>
+</body>
+
+</html>

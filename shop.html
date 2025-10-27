@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop – Ermunai Organic Farm Foods</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    /* ---------- Reset and common ---------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9faf6;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 15px 40px;
+      border-bottom: 2px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      color: green;
+      font-size: 18px;
+    }
+
+    header .logo img {
+      height: 60px;
+      margin-right: 10px;
+    }
+
+    header nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    header nav ul li {
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    header nav ul li a.active,
+    header nav ul li a:hover {
+      color: green;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Cart icon */
+    .cart {
+      font-size: 22px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .cart i {
+      color: green;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: green;
+    }
+
+    .btn-login,
+    .btn-signup {
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-login {
+      background: transparent;
+      border: 2px solid green;
+      color: green;
+    }
+
+    .btn-login:hover {
+      background: green;
+      color: white;
+    }
+
+    .btn-signup {
+      background: green;
+      border: 2px solid green;
+      color: white;
+    }
+
+    .btn-signup:hover {
+      background: #244021;
+      border-color: #244021;
+    }
+
+    .close-menu {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: green;
+      cursor: pointer;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: green;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .profile i {
+      font-size: 20px;
+    }
+
+    .btn-logout {
+      margin-left: 10px;
+      padding: 6px 12px;
+      border: 2px solid crimson;
+      background: transparent;
+      color: crimson;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-logout:hover {
+      background: crimson;
+      color: white;
+    }
+
+    /* Hide username on mobile */
+    @media (max-width: 768px) {
+      .profile .username {
+        display: none;
+        position: absolute;
+        top: -30px;
+        /* adjust to hover position */
+        left: 50%;
+        transform: translateX(-50%);
+        background: green;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        white-space: nowrap;
+        font-size: 14px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 2000;
+      }
+
+      /* Show username on hover */
+      .profile:hover .username {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+
+
+
+    @media (max-width: 900px) {
+      .close-menu {
+        display: block;
+      }
+    }
+
+
+    /* Mobile nav */
+    @media (max-width:900px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      header nav {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100%;
+        background: white;
+        border-left: 2px solid #eee;
+        box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        padding-top: 80px;
+        z-index: 1200;
+      }
+
+      header nav ul {
+        flex-direction: column;
+        align-items: start;
+        padding-left: 30px;
+      }
+
+      header nav ul li {
+        margin: 15px 0;
+      }
+
+      .header-right {
+        gap: 10px;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      header nav.active {
+        right: 0;
+      }
+    }
+
+
+
+    /* Filter bar */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 30px auto;
+    }
+
+    .filter-btn {
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      background: #2f6f31;
+      color: white;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .filter-btn.active {
+      background: #ffb400;
+      color: black;
+    }
+
+    .filter-btn:hover {
+      opacity: 0.9;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+      padding: 0 40px 60px;
+    }
+
+    @media(max-width:1200px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media(max-width:900px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:600px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Product Card */
+    .product-card {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 16px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #f0f4f0;
+      color: #2f6f31;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .card-body h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+      color: #222;
+    }
+
+    .card-body .description {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+      flex-grow: 1;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #2f6f31;
+      margin-bottom: 12px;
+    }
+
+    .qty-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .qty-box button {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #ccc;
+      background: #f7f7f7;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-group button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .wishlist {
+      background: white;
+      border: 2px solid #2f6f31;
+      color: #2f6f31;
+    }
+
+    .wishlist:hover {
+      background: #e8f5e8;
+    }
+
+    .buy {
+      background: #2f6f31;
+      color: white;
+    }
+
+    .buy:hover {
+      background: #244021;
+    }
+
+    /* Modal / Popup styles */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .modal-content {
+      background: white;
+      width: 90%;
+      max-width: 800px;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .modal-image {
+      flex: 1;
+      background: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .modal-image img {
+      width: 100%;
+      height: auto;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    .modal-details {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-details h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #222;
+    }
+
+    .modal-details .category {
+      font-size: 14px;
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .modal-details .stock {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .modal-details .desc {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 12px;
+      flex-grow: 1;
+    }
+
+    .modal-details .modal-price {
+      font-size: 20px;
+      font-weight: bold;
+      color: #2f6f31;
+      margin-bottom: 15px;
+    }
+
+    .modal-details .modal-qty {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .modal-details .modal-qty button {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #ccc;
+      background: #f7f7f7;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal-details .modal-actions {
+      display: flex;
+      gap: 15px;
+    }
+
+    .modal-details .modal-actions button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .modal-details .modal-actions .add-cart {
+      background: #fff;
+      border: 2px solid #2f6f31;
+      color: #2f6f31;
+    }
+
+    .modal-details .modal-actions .add-cart:hover {
+      background: #e8f5e8;
+    }
+
+    .modal-details .modal-actions .buy-now {
+      background: #2f6f31;
+      color: white;
+    }
+
+    .modal-details .modal-actions .buy-now:hover {
+      background: #244021;
+    }
+
+    /* Close button on modal */
+    .modal-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 24px;
+      color: #555;
+      cursor: pointer;
+    }
+
+    /* ✅ Footer */
+    footer {
+      background: linear-gradient(145deg, #056608, #0b8a0d);
+      color: #fff;
+      padding: 40px 20px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .footer-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-section h3,
+    .footer-section h4 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-bottom: 2px solid #ffd700;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .footer-section p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* WhatsApp Order Button */
+    .whatsapp {
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    .whatsapp a {
+      background: #25D366;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .whatsapp a:hover {
+      background: #1eb85b;
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      padding-top: 15px;
+      font-size: 14px;
+    }
+
+    .footer-bottom p {
+      margin: 5px 0;
+    }
+
+    .footer-links a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-container {
+        text-align: center;
+      }
+
+      .footer-section h3,
+      .footer-section h4 {
+        border: none;
+      }
+    }
+
+
+    @media (max-width: 480px) {
+
+      header .logo img {
+        margin-right: 0px;
+      }
+
+      header .logo span {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="./images/logo.jpg" alt="Logo">
+      <span>Ermunai Organic Farm Foods</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="close-menu"><i class="fa-solid fa-times"></i></div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="purchase.html">Purchases</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="feedback.html">Certification & Feedback</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+
+    <!-- Right side -->
+    <div class="header-right">
+      <div class="cart"><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
+
+      <!-- Buttons (default) -->
+      <a href="login.html" class="btn-login">Login</a>
+      <a href="signup.html" class="btn-signup">Sign Up</a>
+
+      <!-- Profile (hidden initially) -->
+      <div class="profile" style="display: none; position: relative;">
+        <i class="fa-solid fa-user"></i>
+        <span class="username"></span>
+        <button class="btn-logout">Logout</button>
+      </div>
+
+
+
+      <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+    </div>
+
+  </header>
+
+  <section class="hero" style="text-align:center;padding:40px 20px;">
+    <h1>Shop Our Products</h1>
+    <p>Discover our range of authentic organic products.</p>
+  </section>
+
+  <!-- Filter Buttons -->
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-category="all">All</button>
+    <button class="filter-btn" data-category="readyToCookMixes">Ready-to-Cook Instant Mixes</button>
+    <button class="filter-btn" data-category="instantSoup">Instant Soup Mix</button>
+    <button class="filter-btn" data-category="idliPodi">Idli Podi's</button>
+    <button class="filter-btn" data-category="instant">Instant Products</button>
+    <button class="filter-btn" data-category="herbal">Herbal Products</button>
+  </div>
+
+  <!-- Product Grid -->
+  <div class="product-grid" id="productGrid"></div>
+
+  <!-- Modal / Popup for Product Detail -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal-content">
+      <div class="modal-image">
+        <img id="modalImg" src="" alt="Product Image" />
+      </div>
+      <div class="modal-details">
+        <span class="modal-close" id="modalClose">&times;</span>
+        <h2 id="modalName">Product Name</h2>
+        <div class="category" id="modalCategory">Category: --</div>
+        <div class="stock" id="modalStock">Stock: --</div>
+        <div class="modal-price" id="modalPrice">₹0</div>
+        <div class="desc" id="modalDesc">Description goes here...</div>
+        <div class="modal-qty">
+          <button id="modalDecQty">−</button>
+          <span id="modalQtyValue">1</span>
+          <button id="modalIncQty">+</button>
+        </div>
+        <div class="modal-actions">
+          <button class="add-cart" id="modalAddToCart">Add to Cart</button>
+          <button class="buy-now" id="modalBuyNow">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <!-- About Section -->
+      <div class="footer-section about">
+        <h3>Ermunai Organic Farm Foods</h3>
+        <p><i class="fa fa-map-marker-alt"></i> M/s. Ermunai Organic Farm Foods,<br>
+          Plot No. 8, Ramalingam St., BFI,<br>
+          Muraliram Srinivas Flats,<br>
+          Ullagaram, Chennai - 600 091.</p>
+        <p><i class="fa fa-phone"></i> +91 9841231996</p>
+        <p><i class="fab fa-whatsapp"></i> +91 9840752833</p>
+        <p><i class="fa fa-envelope"></i> ermunaiorganicfarm@gmail.com</p>
+      </div>
+
+      <!-- Company Links -->
+      <div class="footer-section company">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="feedback.html">Certification & Feedback</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy.html" target="_blank">Privacy Policy</a></li>
+          <li><a href="terms.html" target="_blank">Terms & Conditions</a></li>
+          <li><a href="shipping.html" target="_blank">Shipping Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Product Categories -->
+      <div class="footer-section products">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="shop.html?category=readyToCookMixes">Ready-to-cook Instant Mixes</a></li>
+          <li><a href="shop.html?category=instantSoup">Instant Soup Mix</a></li>
+          <li><a href="shop.html?category=idliPodi">Idli Podi's</a></li>
+          <li><a href="shop.html?category=instant">Instant Products</a></li>
+          <li><a href="shop.html?category=herbal">Herbal Products</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer-section follow-us">
+        <h4><i class="fas fa-share-alt"></i> Follow Us</h4>
+        <ul>
+          <li><i class="fab fa-facebook-f"></i> <a href="https://www.facebook.com/ermunaiorganicfoods"
+              target="_blank">Facebook</a></li>
+          <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/ermunaiorganic"
+              target="_blank">Instagram</a></li>
+          <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/ermunai-organic-farm-217035363"
+              target="_blank">LinkedIn</a></li>
+          <li><i class="fab fa-youtube"></i> <a href="https://youtube.com/@ermunaiorganicfarm"
+              target="_blank">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WhatsApp Order Button -->
+    <div class="whatsapp">
+      <a href="https://wa.me/919841231996" target="_blank">
+        <i class="fab fa-whatsapp"></i> Order on WhatsApp
+      </a>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 Ermunai Organic Farm Foods. All rights reserved.</p>
+      <p class="footer-links">
+        <a href="privacy.html" target="_blank">Privacy Policy</a> |
+        <a href="terms.html" target="_blank">Terms & Conditions</a> |
+        <a href="shipping.html" target="_blank">Shipping Policy</a>
+      </p>
+    </div>
+  </footer>
+
+
+  <script type="module">
+    // Header navigation
+    const hamburger = document.querySelector(".hamburger");
+    const nav = document.querySelector("header nav");
+    const closeMenu = document.querySelector(".close-menu");
+
+    hamburger.addEventListener("click", () => {
+      nav.classList.add("active");
+    });
+
+    closeMenu.addEventListener("click", () => {
+      nav.classList.remove("active");
+    });
+
+    // Login check and profile setup
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = localStorage.getItem("user");
+      const loginBtn = document.querySelector(".btn-login");
+      const signupBtn = document.querySelector(".btn-signup");
+      const profile = document.querySelector(".profile");
+      const username = document.querySelector(".username");
+
+      if (user) {
+        loginBtn.style.display = "none";
+        signupBtn.style.display = "none";
+        profile.style.display = "flex";
+        username.textContent = user;
+      } else {
+        loginBtn.style.display = "inline-block";
+        signupBtn.style.display = "inline-block";
+        profile.style.display = "none";
+      }
+
+      const logoutBtn = document.querySelector(".btn-logout");
+      logoutBtn.addEventListener("click", () => {
+        if (confirm("Do you want to log out?")) {
+          localStorage.removeItem("user");
+          location.reload();
+        }
+      });
+    });
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCbfdG2XU302FuZx0MapVTRmb3Qtaa-hA8",
+      authDomain: "ermunai-e-commerce-project.firebaseapp.com",
+      projectId: "ermunai-e-commerce-project",
+      storageBucket: "ermunai-e-commerce-project.appspot.com",
+      messagingSenderId: "365240050790",
+      appId: "1:365240050790:web:2d4867d6ab4f93a661f9a7"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const productGrid = document.getElementById("productGrid");
+    const filterBar = document.getElementById("filterBar");
+    let products = [];
+
+    // Modal elements
+    const modalOverlay = document.getElementById("productModal");
+    const modalImg = document.getElementById("modalImg");
+    const modalName = document.getElementById("modalName");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalStock = document.getElementById("modalStock");
+    const modalPrice = document.getElementById("modalPrice");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalQtyValue = document.getElementById("modalQtyValue");
+    const modalIncQty = document.getElementById("modalIncQty");
+    const modalDecQty = document.getElementById("modalDecQty");
+    const modalAddToCart = document.getElementById("modalAddToCart");
+    const modalBuyNow = document.getElementById("modalBuyNow");
+    const modalClose = document.getElementById("modalClose");
+
+    let currentModalProduct = null;
+    let currentModalQty = 1;
+
+    async function loadProducts() {
+      const snap = await getDocs(collection(db, "products"));
+      products = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      render(products);
+    }
+
+    function render(list) {
+      productGrid.innerHTML = "";
+      list.forEach(p => {
+        productGrid.innerHTML += `
+        <div class="product-card" data-id="${p.id}" data-category="${p.category}">
+          <img src="${p.image}" alt="${p.name}">
+          <div class="card-body">
+            <span class="badge">${p.badge || p.category || ""}</span>
+            <h3>${p.name}</h3>
+            <p class="description">${p.description || ""}</p>
+            <div class="price">₹${p.price}</div>
+            <div class="qty-box">
+              <button onclick="decQty('${p.id}')">−</button>
+              <span id="qty-${p.id}">1</span>
+              <button onclick="incQty('${p.id}')">+</button>
+            </div>
+            <div class="btn-group">
+              <button class="wishlist" onclick="handleAddToCart('${p.id}')">Add to Cart</button>
+              <button class="buy" onclick="handleBuyNow('${p.id}')">Buy Now</button>
+            </div>
+          </div>
+        </div>`;
+      });
+
+      document.querySelectorAll(".product-card").forEach(card => {
+        card.addEventListener("click", (e) => {
+          const btn = e.target.closest("button");
+          if (btn) return;
+          const pid = card.getAttribute("data-id");
+          openModal(pid);
+        });
+      });
+    }
+
+    filterBar.addEventListener("click", e => {
+      if (!e.target.classList.contains("filter-btn")) return;
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      e.target.classList.add("active");
+      const cat = e.target.dataset.category;
+      if (cat === "all") render(products);
+      else render(products.filter(p => (p.category || "").toLowerCase() === cat.toLowerCase()));
+    });
+
+    window.incQty = id => {
+      const el = document.getElementById(`qty-${id}`);
+      el.textContent = parseInt(el.textContent) + 1;
+    };
+    window.decQty = id => {
+      const el = document.getElementById(`qty-${id}`);
+      const v = parseInt(el.textContent);
+      if (v > 1) el.textContent = v - 1;
+    };
+
+    // ✅ Restricted Add to Cart
+    window.handleAddToCart = id => {
+      const user = localStorage.getItem("user");
+      if (!user) {
+        alertLoginPrompt();
+        return;
+      }
+      const product = products.find(p => p.id === id);
+      if (!product) return;
+      const qtyEl = document.getElementById(`qty-${id}`);
+      const qty = qtyEl ? parseInt(qtyEl.textContent) : 1;
+      addToCartWithQty(product, qty);
+      alert(`${product.name} (x${qty}) added to cart`);
+    };
+
+    // ✅ Restricted Buy Now
+    window.handleBuyNow = id => {
+      const user = localStorage.getItem("user");
+      if (!user) {
+        alertLoginPrompt();
+        return;
+      }
+      const product = products.find(p => p.id === id);
+      if (!product) return;
+      const qtyEl = document.getElementById(`qty-${id}`);
+      const qty = qtyEl ? parseInt(qtyEl.textContent) : 1;
+      localStorage.setItem("cart", JSON.stringify([{ ...product, qty }]));
+      window.location.href = "checkout.html";
+    };
+
+    function alertLoginPrompt() {
+      const confirmLogin = confirm("Please login/signup before purchasing this product. Click OK to go to login page.");
+      if (confirmLogin) {
+        window.location.href = "login.html";
+      }
+    }
+
+    async function openModal(pid) {
+      let product = products.find(p => p.id === pid);
+      if (!product) {
+        const docRef = doc(db, "products", pid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          product = { id: docSnap.id, ...docSnap.data() };
+        } else {
+          alert("Product not found");
+          return;
+        }
+      }
+      currentModalProduct = product;
+      currentModalQty = 1;
+
+      modalImg.src = product.image || "";
+      modalName.textContent = product.name || "";
+      modalCategory.textContent = "Category: " + (product.category || "");
+      modalStock.textContent = "Stock: " + (product.stock != null ? product.stock : "N/A");
+      modalPrice.textContent = "₹" + product.price;
+      modalDesc.textContent = product.description || "";
+      modalQtyValue.textContent = currentModalQty;
+      modalOverlay.style.display = "flex";
+    }
+
+    modalClose.addEventListener("click", () => {
+      modalOverlay.style.display = "none";
+    });
+
+    modalOverlay.addEventListener("click", (e) => {
+      if (e.target === modalOverlay) modalOverlay.style.display = "none";
+    });
+
+    modalIncQty.addEventListener("click", () => {
+      if (!currentModalProduct) return;
+      currentModalQty++;
+      modalQtyValue.textContent = currentModalQty;
+    });
+
+    modalDecQty.addEventListener("click", () => {
+      if (!currentModalProduct) return;
+      if (currentModalQty > 1) {
+        currentModalQty--;
+        modalQtyValue.textContent = currentModalQty;
+      }
+    });
+
+    modalAddToCart.addEventListener("click", () => {
+      const user = localStorage.getItem("user");
+      if (!user) {
+        alertLoginPrompt();
+        return;
+      }
+      if (!currentModalProduct) return;
+      addToCartWithQty(currentModalProduct, currentModalQty);
+      alert(`${currentModalProduct.name} (x${currentModalQty}) added to cart`);
+      modalOverlay.style.display = "none";
+    });
+
+    modalBuyNow.addEventListener("click", () => {
+      const user = localStorage.getItem("user");
+      if (!user) {
+        alertLoginPrompt();
+        return;
+      }
+      if (!currentModalProduct) return;
+      localStorage.setItem("cart", JSON.stringify([{ ...currentModalProduct, qty: currentModalQty }]));
+      window.location.href = "checkout.html";
+    });
+
+    function addToCartWithQty(product, qty) {
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+      const existing = cart.find(item => item.id === product.id);
+      if (existing) {
+        existing.qty = (existing.qty || 1) + qty;
+      } else {
+        cart.push({ ...product, qty });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const cat = getQueryParam("category");
+      if (cat) {
+        const btn = document.querySelector(`.filter-btn[data-category="${cat}"]`);
+        if (btn) btn.click();
+      }
+      loadProducts();
+    });
+  </script>
+
+</body>
+
+</html>

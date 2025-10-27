@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>User Login</title>
+  <link rel="stylesheet" href="./css/user-login.css" />
+  <style>
+    /* user-login.css */
+
+    /* Reset default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .login-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    .login-container input:focus {
+      border-color: #4caf50;
+      outline: none;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #4caf50;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .login-container button:hover {
+      background: #45a049;
+    }
+
+    .login-container p {
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .login-container p a {
+      color: #4caf50;
+      text-decoration: none;
+    }
+
+    .login-container p a:hover {
+      text-decoration: underline;
+    }
+
+    .msg {
+      margin-top: 10px;
+      font-size: 14px;
+      min-height: 20px;
+    }
+
+    /* Responsive Media Queries */
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 25px 20px;
+        width: 100%;
+      }
+
+      .login-container h2 {
+        font-size: 22px;
+      }
+
+      .login-container input,
+      .login-container button {
+        font-size: 16px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>User Login</h2>
+    <form id="loginForm">
+      <input type="email" id="email" placeholder="Email" required />
+      <input type="password" id="password" placeholder="Password" required />
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="signup.html">Create Account</a></p>
+    <p id="msg" class="msg"></p>
+  </div>
+
+
+
+  <!-- Page logic -->
+  <script type="module">
+    // Firebase v9 modular imports
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged }
+      from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+    // Firebase config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCbfdG2XU302FuZx0MapVTRmb3Qtaa-hA8",
+      authDomain: "ermunai-e-commerce-project.firebaseapp.com",
+      projectId: "ermunai-e-commerce-project",
+      storageBucket: "ermunai-e-commerce-project.appspot.com",
+      messagingSenderId: "365240050790",
+      appId: "1:365240050790:web:2d4867d6ab4f93a661f9a7",
+      measurementId: "G-CZJZ4HLCMR"
+    };
+
+    // Init Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const form = document.getElementById('loginForm');
+    const msg = document.getElementById('msg');
+
+    // Redirect if already logged in
+    onAuthStateChanged(auth, (user) => {
+      if (user) window.location.href = "index.html";
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = '';
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      try {
+        const userCredential = await signInWithEmailAndPassword(auth, email, password);
+        // Save user to localStorage
+        localStorage.setItem("user", userCredential.user.email);
+        window.location.href = "index.html";
+      } catch (err) {
+        msg.textContent = err.message;
+        msg.style.color = 'crimson';
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

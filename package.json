@@ -1,0 +1,33 @@
+{
+  "name": "ermunai-user-project",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kesavaram9751/Ermunai-User-Project.git"
+  },
+  "keywords": [
+    "express",
+    "razorpay",
+    "firebase"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kesavaram9751/Ermunai-User-Project/issues"
+  },
+  "homepage": "https://github.com/kesavaram9751/Ermunai-User-Project#readme",
+  "description": "Backend server for Ermunai Organic Farm Foods e-commerce project.",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "firebase-admin": "^13.5.0",
+    "razorpay": "^2.9.6"
+  }
+}

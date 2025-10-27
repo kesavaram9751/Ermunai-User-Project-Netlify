@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Basic SEO Meta Tags -->
+  <title>Ermunai Organic Farm Foods | 100% Organic & Ready-to-Cook Products in India</title>
+  <meta name="description"
+    content="Buy 100% organic, natural, and chemical-free farm foods from Ermunai Organic Farm Foods. Explore our range of ready-to-cook and ready-to-eat organic products, delivered fresh across India.">
+  <meta name="keywords"
+    content="organic food India, Ermunai Organic, organic farm foods, ready to cook, organic groceries, natural farm produce">
+  <meta name="author" content="Ermunai Organic Farm Foods">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://ermunaiorganicfarmfoods.com/">
+  <meta property="og:title" content="Ermunai Organic Farm Foods | 100% Organic & Ready-to-Cook Products">
+  <meta property="og:description"
+    content="Ermunai Organic Farm Foods brings you healthy, natural, and organic products directly from farm to table.">
+  <meta property="og:url" content="https://ermunaiorganicfarmfoods.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ermunaiorganicfarmfoods.com/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+  <!-- Font Awesome for icons -->
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+
+    /* ---------- Header ---------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 15px 40px;
+      border-bottom: 2px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      color: green;
+      font-size: 18px;
+    }
+
+    header .logo img {
+      height: 60px;
+      margin-right: 10px;
+    }
+
+    header nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    header nav ul li {
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    header nav ul li a.active,
+    header nav ul li a:hover {
+      color: green;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Buttons */
+    .btn-login,
+    .btn-signup {
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-login {
+      background: transparent;
+      border: 2px solid green;
+      color: green;
+    }
+
+    .btn-login:hover {
+      background: green;
+      color: white;
+    }
+
+    .btn-signup {
+      background: green;
+      border: 2px solid green;
+      color: white;
+    }
+
+    .btn-signup:hover {
+      background: #244021;
+      border-color: #244021;
+    }
+
+    /* Hamburger (hidden by default) */
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: green;
+    }
+
+    .close-menu {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: green;
+      cursor: pointer;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: green;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .profile i {
+      font-size: 20px;
+    }
+
+    .btn-logout {
+      margin-left: 10px;
+      padding: 6px 12px;
+      border: 2px solid crimson;
+      background: transparent;
+      color: crimson;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-logout:hover {
+      background: crimson;
+      color: white;
+    }
+
+
+
+    @media (max-width: 900px) {
+      .close-menu {
+        display: block;
+      }
+    }
+
+    /* Hide username on mobile */
+    @media (max-width: 768px) {
+      .profile .username {
+        display: none;
+        position: absolute;
+        top: -30px;
+        /* adjust to hover position */
+        left: 50%;
+        transform: translateX(-50%);
+        background: green;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        white-space: nowrap;
+        font-size: 14px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 2000;
+      }
+
+      /* Show username on hover */
+      .profile:hover .username {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+
+
+    /* ---------- Mobile Styles ---------- */
+    @media (max-width: 900px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      /* Hide normal menu */
+      header nav {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100%;
+        background: white;
+        border-left: 2px solid #eee;
+        box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        padding-top: 80px;
+        z-index: 1200;
+      }
+
+      header nav ul {
+        flex-direction: column;
+        align-items: start;
+        padding-left: 30px;
+      }
+
+      header nav ul li {
+        margin: 15px 0;
+      }
+
+      .header-right {
+        gap: 10px;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      /* Show menu when active */
+      header nav.active {
+        right: 0;
+      }
+    }
+
+
+    /* Cart */
+    .cart {
+      font-size: 22px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .cart i {
+      color: green;
+    }
+
+
+
+
+    /* ✅ Banner */
+    .banner {
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 450px;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide.active {
+      display: block;
+      animation: fade 1s;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: 0.4;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .controls {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      font-size: 40px;
+      color: white;
+      padding: 0 20px;
+      cursor: pointer;
+    }
+
+    /* ✅ Banner Buttons side by side */
+    .banner-buttons {
+      width: 300px;
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .banner-buttons .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner-buttons .btn a {
+      text-decoration: none;
+    }
+
+    .banner-buttons .shop {
+      background: green;
+    }
+
+    .banner-buttons .shop a {
+      color: white;
+
+    }
+
+    .banner-buttons .learn {
+      background: white;
+      border: 2px solid green;
+    }
+
+    .banner-buttons .learn a {
+      color: green;
+
+    }
+
+    .banner-buttons .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0.2) 100%);
+      transform: skewX(-25deg);
+    }
+
+    .banner-buttons .btn:hover::before {
+      animation: shine 0.8s forwards;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -75%;
+      }
+
+      100% {
+        left: 125%;
+      }
+    }
+
+    /* Product Section */
+    .product-section {
+      padding: 60px 20px;
+      background: #f8fbf7;
+      text-align: center;
+    }
+
+    .product-section .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2c3e2c;
+      margin-bottom: 10px;
+    }
+
+    .product-section .section-subtitle {
+      font-size: 1rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .product-grid {
+      display: grid;
+      gap: 30px;
+      grid-template-columns: repeat(3, 1fr);
+      /* Top row: 3 columns */
+      justify-content: center;
+      /* Center content */
+    }
+
+    .product-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card .card-image {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #27ae60;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .card-content {
+      padding: 15px;
+      text-align: left;
+    }
+
+    .card-content h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #2c3e2c;
+    }
+
+    .card-content p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 12px;
+    }
+
+    .explore-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #27ae60;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .explore-link:hover {
+      color: #1d8348;
+    }
+
+    /* Mobile and layout adjustments */
+    @media (max-width: 992px) {
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        /* On tablets: 2 columns */
+      }
+    }
+
+    @media (max-width: 600px) {
+      .product-grid {
+        grid-template-columns: 1fr;
+        /* On phones: single column */
+      }
+    }
+
+    /* ✅ FAQ Section */
+    .faq {
+      background: #fafcf9;
+      padding: 60px 20px;
+    }
+
+    .faq h2 {
+      font-size: 28px;
+      font-weight: bold;
+      color: #2c3e2c;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .faq-item {
+      max-width: 800px;
+      margin: 15px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .faq-question {
+      font-weight: bold;
+      color: green;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      display: none;
+      color: #444;
+      font-size: 15px;
+    }
+
+    .faq-item.active .faq-answer {
+      display: block;
+      margin-top: 8px;
+    }
+
+    /* ✅ Footer */
+    footer {
+      background: linear-gradient(145deg, #056608, #0b8a0d);
+      color: #fff;
+      padding: 40px 20px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .footer-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-section h3,
+    .footer-section h4 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-bottom: 2px solid #ffd700;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .footer-section p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* WhatsApp Order Button */
+    .whatsapp {
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    .whatsapp a {
+      background: #25D366;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .whatsapp a:hover {
+      background: #1eb85b;
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      padding-top: 15px;
+      font-size: 14px;
+    }
+
+    .footer-bottom p {
+      margin: 5px 0;
+    }
+
+    .footer-links a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-container {
+        text-align: center;
+      }
+
+      .footer-section h3,
+      .footer-section h4 {
+        border: none;
+      }
+    }
+
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header nav ul {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      header nav ul li {
+        margin: 10px 0;
+      }
+
+      .banner {
+        height: 300px;
+      }
+
+      .slider {
+        height: 300px;
+      }
+
+      .slide img {
+        object-fit: cover;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .banner {
+        height: 250px;
+      }
+
+      .slider {
+        height: 250px;
+      }
+
+      .slide img {
+        object-fit: cover;
+
+      }
+
+      header .logo img {
+        margin-right: 0px;
+      }
+
+      header .logo span {
+        display: none;
+      }
+
+      .banner-buttons .btn {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Header -->
+  <header>
+    <div class="logo">
+      <img src="./images/logo.jpg" alt="Logo">
+      <span>Ermunai Organic Farm Foods</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="close-menu"><i class="fa-solid fa-times"></i></div>
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="purchase.html">Purchases</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="feedback.html">Certification & Feedback</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+
+    <!-- Right side -->
+    <div class="header-right">
+      <div class="cart"><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
+
+      <!-- Buttons (default) -->
+      <a href="login.html" class="btn-login">Login</a>
+      <a href="signup.html" class="btn-signup">Sign Up</a>
+
+      <!-- Profile (hidden initially) -->
+      <div class="profile" style="display: none; position: relative;">
+        <i class="fa-solid fa-user"></i>
+        <span class="username"></span>
+        <button class="btn-logout">Logout</button>
+      </div>
+
+
+
+      <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+    </div>
+
+  </header>
+
+
+
+  <!-- ✅ Banner Section -->
+  <section class="banner">
+    <div class="slider">
+      <div class="slide active">
+        <img src="./images/banner.png" alt="Banner 1">
+      </div>
+      <div class="slide">
+        <img src="./images/banner2.png" alt="Banner 2">
+      </div>
+    </div>
+
+    <div class="controls">
+      <span class="prev">&#10094;</span>
+      <span class="next">&#10095;</span>
+    </div>
+
+    <div class="banner-buttons">
+      <button class="btn shop"><a href="shop.html">Shop Now</a></button>
+      <button class="btn learn"><a href="about.html">Learn More</a></button>
+    </div>
+  </section>
+
+  <!-- ✅ Product Categories Section -->
+  <section class="product-section">
+    <div class="container">
+      <h2 class="section-title">Our Product Categories</h2>
+      <p class="section-subtitle">
+        Explore our wide range of organic farm products, each crafted with traditional methods
+        and modern quality standards to bring you the best of nature.
+      </p>
+
+      <div class="product-grid">
+        <div class="product-card">
+          <div class="card-image">
+            <img src="./images/ready to cook.png" alt="Ready-to-cook Instant Mixes">
+            <span class="badge">11+ varieties</span>
+          </div>
+          <div class="card-content">
+            <h3>Ready-to-cook Instant Mixes</h3>
+            <p>Convenient and healthy cooking mixes prepared with traditional recipes.</p>
+            <a href="shop.html?category=readyToCookMixes" class="explore-link">Explore Category →</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-image">
+            <img src="./images/soupmix.png" alt="Instant Soup Mix">
+            <span class="badge">3+ flavors</span>
+          </div>
+          <div class="card-content">
+            <h3>Instant Soup Mix</h3>
+            <p>Nutritious and quick soups made from organic ingredients.</p>
+            <a href="shop.html?category=instantSoup" class="explore-link">Explore Category →</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-image">
+            <img src="./images/idlipodi.png" alt="Idli Podi's">
+            <span class="badge">7+ varieties</span>
+          </div>
+          <div class="card-content">
+            <h3>Idli Podi's</h3>
+            <p>Flavorful spice powders for enhancing traditional dishes.</p>
+            <a href="shop.html?category=idliPodi" class="explore-link">Explore Category →</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-image">
+            <img src="./images/instant.png" alt="Instant">
+            <span class="badge">4+ products</span>
+          </div>
+          <div class="card-content">
+            <h3>Instant</h3>
+            <p>Ready-to-use mixes for soups, snacks, and more.</p>
+            <a href="shop.html?category=instant" class="explore-link">Explore Category →</a>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="card-image">
+            <img src="./images/herbal.png" alt="Herbal Products">
+            <span class="badge">4+ products</span>
+          </div>
+          <div class="card-content">
+            <h3>Herbal Products</h3>
+            <p>Natural wellness products and cleansers made from herbs.</p>
+            <a href="shop.html?category=herbal" class="explore-link">Explore Category →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ FAQ Section -->
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>1. What is Ermunai Organic Farm Foods?</span>
+        <i class="fa fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Ermunai Organic Farm Foods is a Chennai-based brand offering organic millet mixes, health powders, and
+        ready-to-cook traditional foods without preservatives.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>2. Are Ermunai Organic products organic and natural?</span>
+        <i class="fa fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Yes. All our food mixes are 100% natural, made from native grains, with no artificial flavors, colors, or
+        preservatives.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>3. What products do you offer?</span>
+        <i class="fa fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        We provide organic millet mixes, instant dosa/idli mixes, upma mix, pongal mix, health powders, and podis made
+        from traditional recipes.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>4. Are your millet mixes good for health?</span>
+        <i class="fa fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Yes. Millets are rich in fiber, protein, and minerals. They support digestion, manage weight, and are
+        diabetic-friendly.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>5. Are your products gluten-free?</span>
+        <i class="fa fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Most millet-based mixes are naturally gluten-free. Please check each product’s ingredient list for details.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>6. How do I cook your instant mixes?</span>
+        <i class="fa fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Just add hot water or cook with simple ingredients as per pack instructions. Ready in minutes – perfect for
+        breakfast, dinner, or travel.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>7. Are your products suitable for children and elders?</span>
+        <i class="fa fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Yes. Our mixes are safe, healthy, and made with gentle native ingredients, ideal for all age groups.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>8. Do you deliver across India?</span>
+        <i class="fa fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Yes. We ship to all major cities and towns in India within 3–7 working days. International delivery is also
+        available on request.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>9. How can I order your products?</span>
+        <i class="fa fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        You can order directly from our website or contact us at +91 9840752833 for bulk and retail orders.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>10. Is your packaging eco-friendly?</span>
+        <i class="fa fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Yes. We use eco-conscious and sustainable packaging to reduce plastic and support a greener lifestyle.
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer>
+    <div class="footer-container">
+      <!-- About Section -->
+      <div class="footer-section about">
+        <h3>Ermunai Organic Farm Foods</h3>
+        <p><i class="fa fa-map-marker-alt"></i> M/s. Ermunai Organic Farm Foods,<br>
+          Plot No. 8, Ramalingam St., BFI,<br>
+          Muraliram Srinivas Flats,<br>
+          Ullagaram, Chennai - 600 091.</p>
+        <p><i class="fa fa-phone"></i> +91 9841231996</p>
+        <p><i class="fab fa-whatsapp"></i> +91 9840752833</p>
+        <p><i class="fa fa-envelope"></i> ermunaiorganicfarm@gmail.com</p>
+      </div>
+
+      <!-- Company Links -->
+      <div class="footer-section company">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="feedback.html">Certification & Feedback</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy.html" target="_blank">Privacy Policy</a></li>
+          <li><a href="terms.html" target="_blank">Terms & Conditions</a></li>
+          <li><a href="shipping.html" target="_blank">Shipping Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Product Categories -->
+      <div class="footer-section products">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="shop.html?category=readyToCookMixes">Ready-to-cook Instant Mixes</a></li>
+          <li><a href="shop.html?category=instantSoup">Instant Soup Mix</a></li>
+          <li><a href="shop.html?category=idliPodi">Idli Podi's</a></li>
+          <li><a href="shop.html?category=instant">Instant Products</a></li>
+          <li><a href="shop.html?category=herbal">Herbal Products</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer-section follow-us">
+        <h4><i class="fas fa-share-alt"></i> Follow Us</h4>
+        <ul>
+          <li><i class="fab fa-facebook-f"></i> <a href="https://www.facebook.com/ermunaiorganicfoods"
+              target="_blank">Facebook</a></li>
+          <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/ermunaiorganic"
+              target="_blank">Instagram</a></li>
+          <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/ermunai-organic-farm-217035363"
+              target="_blank">LinkedIn</a></li>
+          <li><i class="fab fa-youtube"></i> <a href="https://youtube.com/@ermunaiorganicfarm"
+              target="_blank">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WhatsApp Order Button -->
+    <div class="whatsapp">
+      <a href="https://wa.me/919841231996" target="_blank">
+        <i class="fab fa-whatsapp"></i> Order on WhatsApp
+      </a>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 Ermunai Organic Farm Foods. All rights reserved.</p>
+      <p class="footer-links">
+        <a href="privacy.html" target="_blank">Privacy Policy</a> |
+        <a href="terms.html" target="_blank">Terms & Conditions</a> |
+        <a href="shipping.html" target="_blank">Shipping Policy</a>
+      </p>
+    </div>
+  </footer>
+
+
+
+  <!-- ✅ Script for Auto + Manual Slider -->
+  <script type="module">
+
+    //responsive header
+    const hamburger = document.querySelector(".hamburger");
+    const nav = document.querySelector("header nav");
+    const closeMenu = document.querySelector(".close-menu");
+
+    hamburger.addEventListener("click", () => {
+      nav.classList.add("active");
+    });
+
+    closeMenu.addEventListener("click", () => {
+      nav.classList.remove("active");
+    });
+
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCbfdG2XU302FuZx0MapVTRmb3Qtaa-hA8",
+      authDomain: "ermunai-e-commerce-project.firebaseapp.com",
+      projectId: "ermunai-e-commerce-project",
+      storageBucket: "ermunai-e-commerce-project.appspot.com",
+      messagingSenderId: "365240050790",
+      appId: "1:365240050790:web:2d4867d6ab4f93a661f9a7",
+      measurementId: "G-CZJZ4HLCMR"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const loginBtn = document.querySelector(".btn-login");
+      const signupBtn = document.querySelector(".btn-signup");
+      const profile = document.querySelector(".profile");
+      const username = document.querySelector(".username");
+      const logoutBtn = document.querySelector(".btn-logout");
+
+      // Listen to Firebase Auth state
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is logged in
+          loginBtn.style.display = "none";
+          signupBtn.style.display = "none";
+          profile.style.display = "flex";
+          username.textContent = user.email; // show email or displayName
+          localStorage.setItem("user", user.email); // optional
+        } else {
+          // No user is logged in
+          loginBtn.style.display = "inline-block";
+          signupBtn.style.display = "inline-block";
+          profile.style.display = "none";
+          localStorage.removeItem("user");
+        }
+      });
+
+      logoutBtn.addEventListener("click", async () => {
+        if (confirm("Do you want to log out?")) {
+          await signOut(auth);
+          location.reload();
+        }
+      });
+    });
+
+
+
+
+    let index = 0;
+    const slides = document.querySelectorAll(".slide");
+    const prev = document.querySelector(".prev");
+    const next = document.querySelector(".next");
+
+    function showSlide(i) {
+      slides.forEach((slide, idx) => {
+        slide.classList.remove("active");
+        if (idx === i) slide.classList.add("active");
+      });
+    }
+
+    function autoSlide() {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+    }
+
+    let slideInterval = setInterval(autoSlide, 3000);
+
+    prev.addEventListener("click", () => {
+      index = (index - 1 + slides.length) % slides.length;
+      showSlide(index);
+      resetInterval();
+    });
+
+    next.addEventListener("click", () => {
+      index = (index + 1) % slides.length;
+      showSlide(index);
+      resetInterval();
+    });
+
+    function resetInterval() {
+      clearInterval(slideInterval);
+      slideInterval = setInterval(autoSlide, 3000);
+    }
+
+
+
+    // FAQ toggle functionality
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach(item => {
+      const question = item.querySelector(".faq-question");
+
+      question.addEventListener("click", () => {
+        item.classList.toggle("active");
+
+        // Toggle icon between plus and minus
+        const icon = question.querySelector("i");
+        if (item.classList.contains("active")) {
+          icon.classList.remove("fa-plus");
+          icon.classList.add("fa-minus");
+        } else {
+          icon.classList.remove("fa-minus");
+          icon.classList.add("fa-plus");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

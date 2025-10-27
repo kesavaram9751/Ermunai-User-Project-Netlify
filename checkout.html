@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Basic SEO Meta Tags -->
+    <title>Checkout - Ermunai Organic Farm Foods | 100% Organic & Ready-to-Cook Products in India</title>
+    <meta name="description"
+        content="Buy 100% organic, natural, and chemical-free farm foods from Ermunai Organic Farm Foods. Explore our range of ready-to-cook and ready-to-eat organic products, delivered fresh across India.">
+    <meta name="keywords"
+        content="organic food India, Ermunai Organic, organic farm foods, ready to cook, organic groceries, natural farm produce">
+    <meta name="author" content="Ermunai Organic Farm Foods">
+    <meta name="robots" content="index, follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://ermunaiorganicfarmfoods.com/">
+    <meta property="og:title" content="Ermunai Organic Farm Foods | 100% Organic & Ready-to-Cook Products">
+    <meta property="og:description"
+        content="Ermunai Organic Farm Foods brings you healthy, natural, and organic products directly from farm to table.">
+    <meta property="og:url" content="https://ermunaiorganicfarmfoods.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://ermunaiorganicfarmfoods.com/images/logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9faf6;
+            color: #333;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media(max-width: 800px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-section,
+        .summary-section {
+            background: white;
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+        }
+
+        .form-section h2,
+        .summary-section h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #2f6f31;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .summary-section .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .summary-section .cart-item span {
+            font-size: 16px;
+        }
+
+        .summary-section .totals {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 20px;
+        }
+
+        .totals .line {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .totals .line.total {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .btn-pay {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #2f6f31;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn-pay:hover {
+            background: #244021;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Checkout</h1>
+    <div class="container">
+        <!-- Left: Billing / Shipping Details Form -->
+        <div class="form-section">
+            <h2>Your Details</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="name">Full Name*</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" name="phone" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address*</label>
+                    <textarea id="address" name="address" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="pin">Pin Code*</label>
+                    <input type="text" id="pin" name="pin" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City*</label>
+                    <input type="text" id="city" name="city" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="state">State*</label>
+                    <input type="text" id="state" name="state" required />
+                </div>
+
+                <!-- you can add more fields as needed -->
+            </form>
+        </div>
+
+        <!-- Right: Order Summary and Payment -->
+        <div class="summary-section">
+            <h2>Order Summary</h2>
+            <div id="itemsList">
+                <!-- JS will populate cart items here -->
+            </div>
+
+            <div class="totals">
+                <div class="line">
+                    <span>Subtotal</span>
+                    <span id="subtotalAmt">₹0</span>
+                </div>
+                <div class="line">
+                    <span>Shipping</span>
+                    <span id="shippingAmt">₹0</span>
+                </div>
+                <div class="line total">
+                    <span>Total</span>
+                    <span id="totalAmt">₹0</span>
+                </div>
+            </div>
+
+            <button id="btnPay" class="btn-pay">Pay Now</button>
+        </div>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+        // -------------------------------------------------------------------------------------
+        // 🛑 CRITICAL CHANGE: REPLACE THIS PLACEHOLDER WITH YOUR LIVE RAILWAY URL
+        // Example: https://sparkling-commitment-eqqga-asia-southeast1.railway.app
+        // -------------------------------------------------------------------------------------
+        const API_BASE_URL = "https://ermunai-user-project-production.up.railway.app";
+
+        // ---------- Load cart from localStorage ----------
+        let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+        const itemsDiv = document.getElementById("itemsList");
+        const subtotalEl = document.getElementById("subtotalAmt");
+        const shippingEl = document.getElementById("shippingAmt");
+        const totalEl = document.getElementById("totalAmt");
+        const btnPay = document.getElementById("btnPay");
+        const pinInput = document.getElementById("pin");
+        const form = document.getElementById("checkoutForm");
+
+        function renderCart() {
+            itemsDiv.innerHTML = "";
+            let subtotal = 0;
+            cart.forEach(item => {
+                const itemDiv = document.createElement("div");
+                itemDiv.className = "cart-item";
+                const nameSpan = document.createElement("span");
+                nameSpan.textContent = item.name + " × " + item.qty;
+                const priceSpan = document.createElement("span");
+                priceSpan.textContent = "₹" + (item.price * item.qty).toFixed(2);
+                itemDiv.append(nameSpan, priceSpan);
+                itemsDiv.appendChild(itemDiv);
+                subtotal += item.price * item.qty;
+            });
+            subtotalEl.textContent = "₹" + subtotal.toFixed(2);
+            return subtotal;
+        }
+
+        function computeShipping(pin) {
+            if (!pin) return 0;
+            pin = pin.trim();
+            if (/^6/.test(pin)) return 50;
+            if (/^5/.test(pin)) return 70;
+            return 100;
+        }
+
+        function computeTotal(subtotal, shipping) {
+            return subtotal + shipping;
+        }
+
+        // ---------- Initialize ----------
+        let subtotal = renderCart();
+        let shipping = 0;
+        shippingEl.textContent = "₹" + shipping.toFixed(2);
+        totalEl.textContent = "₹" + computeTotal(subtotal, shipping).toFixed(2);
+
+        pinInput.addEventListener("blur", () => {
+            const pin = pinInput.value;
+            shipping = computeShipping(pin);
+            shippingEl.textContent = "₹" + shipping.toFixed(2);
+            totalEl.textContent = "₹" + computeTotal(subtotal, shipping).toFixed(2);
+        });
+
+        // ---------- Pay Now Button ----------
+        btnPay.addEventListener("click", async (e) => {
+            e.preventDefault();
+
+            if (!form.checkValidity()) {
+                alert("Please fill all required details.");
+                return;
+            }
+
+            const formData = {
+                name: form.name.value,
+                phone: form.phone.value,
+                address: form.address.value,
+                pin: form.pin.value,
+                city: form.city.value,
+                state: form.state.value
+            };
+
+            const order = {
+                items: cart,
+                subtotal: subtotal,
+                shipping: shipping,
+                total: computeTotal(subtotal, shipping),
+                customer: formData
+            };
+
+            try {
+                // Step 1: Create Razorpay Order
+                // UPDATED: Using the API_BASE_URL variable
+                const response = await fetch(`${API_BASE_URL}/create-order`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ amount: order.total })
+                });
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error("Server error:", errorText);
+                    alert("Failed to create Razorpay order.");
+                    return;
+                }
+
+                const data = await response.json();
+                console.log("Razorpay Order Created:", data);
+
+                // Step 2: Open Razorpay payment popup
+                const options = {
+                    key: "rzp_test_RWsNjENImz7rr4", // replace with your real key_id
+                    amount: order.total * 100,
+                    currency: "INR",
+                    name: "Erumunai Organic Farm Foods",
+                    description: "Order Payment",
+                    order_id: data.id,
+                    handler: async function (response) {
+                        // Step 3: Save order to Firebase after payment success
+                        const paymentData = {
+                            ...order,
+                            payment_id: response.razorpay_payment_id,
+                            order_id: response.razorpay_order_id,
+                            signature: response.razorpay_signature,
+                            status: "Paid",
+                            date: new Date().toISOString()
+                        };
+
+                        try {
+                            // UPDATED: Using the API_BASE_URL variable
+                            const saveResponse = await fetch(`${API_BASE_URL}/save-order`, {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" },
+                                body: JSON.stringify({ orderData: paymentData })
+                            });
+
+                            if (!saveResponse.ok) {
+                                const errorText = await saveResponse.text();
+                                console.error("Save Order Error:", errorText);
+                                alert("Payment succeeded but order not saved!");
+                                return;
+                            }
+
+                            alert("Payment Successful! Your order has been placed.");
+                            localStorage.removeItem("cart");
+                            window.location.href = "thankyou.html";
+                        } catch (saveErr) {
+                            console.error("Error saving order:", saveErr);
+                            alert("Error saving order details.");
+                        }
+                    },
+                    prefill: {
+                        name: formData.name,
+                        contact: formData.phone
+                    },
+                    theme: { color: "#2f6f31" }
+                };
+
+                const rzp = new Razorpay(options);
+                rzp.open();
+
+            } catch (err) {
+                console.error("Payment initiation error:", err);
+                alert("Something went wrong. Please try again.");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

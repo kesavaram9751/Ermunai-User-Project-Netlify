@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Basic SEO Meta Tags -->
+  <title>Contact us - Ermunai Organic Farm Foods | 100% Organic & Ready-to-Cook Products in India</title>
+  <meta name="description"
+    content="Buy 100% organic, natural, and chemical-free farm foods from Ermunai Organic Farm Foods. Explore our range of ready-to-cook and ready-to-eat organic products, delivered fresh across India.">
+  <meta name="keywords"
+    content="organic food India, Ermunai Organic, organic farm foods, ready to cook, organic groceries, natural farm produce">
+  <meta name="author" content="Ermunai Organic Farm Foods">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href="https://ermunaiorganicfarmfoods.com/">
+  <meta property="og:title" content="Ermunai Organic Farm Foods | 100% Organic & Ready-to-Cook Products">
+  <meta property="og:description"
+    content="Ermunai Organic Farm Foods brings you healthy, natural, and organic products directly from farm to table.">
+  <meta property="og:url" content="https://ermunaiorganicfarmfoods.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ermunaiorganicfarmfoods.com/images/logo.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Reset + Base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #fdf6ec;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 15px 40px;
+      border-bottom: 2px solid #eee;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      color: green;
+      font-size: 18px;
+    }
+
+    header .logo img {
+      height: 60px;
+      margin-right: 10px;
+    }
+
+    header nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    header nav ul li {
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    header nav ul li a.active,
+    header nav ul li a:hover {
+      color: green;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Buttons */
+    .btn-login,
+    .btn-signup {
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-login {
+      background: transparent;
+      border: 2px solid green;
+      color: green;
+    }
+
+    .btn-login:hover {
+      background: green;
+      color: white;
+    }
+
+    .btn-signup {
+      background: green;
+      border: 2px solid green;
+      color: white;
+    }
+
+    .btn-signup:hover {
+      background: #244021;
+      border-color: #244021;
+    }
+
+    /* Hamburger (hidden by default) */
+    .hamburger {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: green;
+    }
+
+    .close-menu {
+      display: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      color: green;
+      cursor: pointer;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: green;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .profile i {
+      font-size: 20px;
+    }
+
+    .btn-logout {
+      margin-left: 10px;
+      padding: 6px 12px;
+      border: 2px solid crimson;
+      background: transparent;
+      color: crimson;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-logout:hover {
+      background: crimson;
+      color: white;
+    }
+
+    /* Hide username on mobile */
+    @media (max-width: 768px) {
+      .profile .username {
+        display: none;
+        position: absolute;
+        top: -30px;
+        /* adjust to hover position */
+        left: 50%;
+        transform: translateX(-50%);
+        background: green;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        white-space: nowrap;
+        font-size: 14px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 2000;
+      }
+
+      /* Show username on hover */
+      .profile:hover .username {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+
+
+
+    @media (max-width: 900px) {
+      .close-menu {
+        display: block;
+      }
+    }
+
+
+    /* ---------- Mobile Styles ---------- */
+    @media (max-width: 900px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      /* Hide normal menu */
+      header nav {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        width: 250px;
+        height: 100%;
+        background: white;
+        border-left: 2px solid #eee;
+        box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        padding-top: 80px;
+        z-index: 1200;
+      }
+
+      header nav ul {
+        flex-direction: column;
+        align-items: start;
+        padding-left: 30px;
+      }
+
+      header nav ul li {
+        margin: 15px 0;
+      }
+
+      .header-right {
+        gap: 10px;
+      }
+
+      .hamburger {
+        display: block;
+      }
+
+      /* Show menu when active */
+      header nav.active {
+        right: 0;
+      }
+    }
+
+
+    /* Cart */
+    .cart {
+      font-size: 22px;
+      color: #333;
+      cursor: pointer;
+    }
+
+    .cart i {
+      color: green;
+    }
+
+    /* Buttons */
+    .btn-login,
+    .btn-signup {
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-login {
+      background: transparent;
+      border: 2px solid green;
+      color: green;
+    }
+
+    .btn-login:hover {
+      background: green;
+      color: white;
+    }
+
+    .btn-signup {
+      background: green;
+      border: 2px solid green;
+      color: white;
+    }
+
+    .btn-signup:hover {
+      background: #244021;
+      border-color: #244021;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 60px 20px 40px;
+      background: #e8f9f1;
+      border-radius: 0 0 20px 20px;
+    }
+
+    .hero h1 {
+      font-size: 38px;
+      color: #2d4c2a;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .hero p {
+      color: #555;
+      font-weight: 500;
+    }
+
+    /* Contact Section */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 0 30px;
+    }
+
+    .contact-card {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+      background: #fffaf5;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .contact-card h3 {
+      font-weight: 700;
+      color: #2d4c2a;
+    }
+
+    .contact-card .icon {
+      font-size: 28px;
+    }
+
+    .whatsapp-box {
+      margin-top: 20px;
+      padding: 15px;
+      background: #e6f9ee;
+      border-left: 4px solid #25d366;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .whatsapp-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1da851;
+    }
+
+    /* Form */
+    .contact-form h2 {
+      margin-bottom: 20px;
+      color: #2d4c2a;
+      font-weight: 700;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 15px;
+    }
+
+    .form-group {
+      flex: 1;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    textarea {
+      height: 120px;
+    }
+
+    .send-btn {
+      padding: 12px;
+      background: #2d4c2a;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .send-btn:hover {
+      background: #244021;
+    }
+
+    .note {
+      font-size: 13px;
+      margin-top: 10px;
+      color: #777;
+    }
+
+    .contact-form,
+    .hero p {
+      font-weight: 600;
+      font-weight: bold;
+    }
+
+
+    /* ✅ Footer */
+    footer {
+      background: linear-gradient(145deg, #056608, #0b8a0d);
+      color: #fff;
+      padding: 40px 20px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .footer-container {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-section h3,
+    .footer-section h4 {
+      color: #fff;
+      margin-bottom: 15px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      border-bottom: 2px solid #ffd700;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .footer-section p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer-section ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* WhatsApp Order Button */
+    .whatsapp {
+      margin: 25px 0;
+      text-align: center;
+    }
+
+    .whatsapp a {
+      background: #25D366;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .whatsapp a:hover {
+      background: #1eb85b;
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.3);
+      padding-top: 15px;
+      font-size: 14px;
+    }
+
+    .footer-bottom p {
+      margin: 5px 0;
+    }
+
+    .footer-links a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .footer-container {
+        text-align: center;
+      }
+
+      .footer-section h3,
+      .footer-section h4 {
+        border: none;
+      }
+    }
+
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header nav ul {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      header nav ul li {
+        margin: 10px 0;
+      }
+
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      header .logo img {
+        margin-right: 0px;
+      }
+
+      header .logo span {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="./images/logo.jpg" alt="Logo">
+      <span>Ermunai Organic Farm Foods</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+      <div class="close-menu"><i class="fa-solid fa-times"></i></div>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="purchase.html">Purchases</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="feedback.html">Certification & Feedback</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+
+
+    <!-- Right side -->
+    <div class="header-right">
+      <div class="cart"><a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a></div>
+
+      <!-- Buttons (default) -->
+      <a href="login.html" class="btn-login">Login</a>
+      <a href="signup.html" class="btn-signup">Sign Up</a>
+
+      <!-- Profile (hidden initially) -->
+      <div class="profile" style="display: none; position: relative;">
+        <i class="fa-solid fa-user"></i>
+        <span class="username"></span>
+        <button class="btn-logout">Logout</button>
+      </div>
+      <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+    </div>
+
+  </header>
+
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Get in touch with us for orders, inquiries, or to learn more about our organic
+      products.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-container">
+    <!-- Left Side Info -->
+    <div class="contact-info">
+      <div class="contact-card">
+        <div class="icon">📍</div>
+        <div>
+          <h3>Visit Us</h3>
+          <p>M/s. Ermunai Organic Farm Foods,<br>Plot No. 8, Ramalingam St.,BFI,<br>Muraliram Srinivas Flats,<br>
+            Ullagaram,<br>Chennai - 600 091</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="icon">📞</div>
+        <div>
+          <h3>Call Us</h3>
+          <p>Customer care +91 9841231996<br>What's app business +91 9840752833</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="icon">✉️</div>
+        <div>
+          <h3>Email Us</h3>
+          <p>ermunaiorganicfarm@gmail.com</p>
+        </div>
+      </div>
+      <div class="whatsapp-box">
+        <p>💬 <strong>Quick Order on WhatsApp</strong><br>Place your order instantly via WhatsApp!</p>
+        <a href="https://wa.me/919841231996" class="whatsapp-btn">Order on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Right Side Form -->
+    <div class="contact-form">
+      <h2>Send us a Message</h2>
+      <form>
+        <div class="form-row">
+          <div class="form-group"><input type="text" placeholder="First Name" required></div>
+          <div class="form-group"><input type="text" placeholder="Last Name"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><input type="email" placeholder="Email Address" required></div>
+          <div class="form-group"><input type="text" placeholder="Phone Number" required></div>
+        </div>
+        <div class="form-group"><input type="text" placeholder="Subject"></div>
+        <div class="form-group"><textarea placeholder="Message"></textarea></div>
+        <button onclick="window.open('https:/wa.me/919841231996', '_blank')" type="submit" class="send-btn">Send
+          Message</button>
+      </form>
+      <p class="note">We’ll get back to you within 24 hours!</p>
+    </div>
+  </section>
+
+  <!-- ✅ Footer -->
+  <footer>
+    <div class="footer-container">
+      <!-- About Section -->
+      <div class="footer-section about">
+        <h3>Ermunai Organic Farm Foods</h3>
+        <p><i class="fa fa-map-marker-alt"></i> M/s. Ermunai Organic Farm Foods,<br>
+          Plot No. 8, Ramalingam St., BFI,<br>
+          Muraliram Srinivas Flats,<br>
+          Ullagaram, Chennai - 600 091.</p>
+        <p><i class="fa fa-phone"></i> +91 9841231996</p>
+        <p><i class="fab fa-whatsapp"></i> +91 9840752833</p>
+        <p><i class="fa fa-envelope"></i> ermunaiorganicfarm@gmail.com</p>
+      </div>
+
+      <!-- Company Links -->
+      <div class="footer-section company">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="feedback.html">Certification & Feedback</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="privacy.html" target="_blank">Privacy Policy</a></li>
+          <li><a href="terms.html" target="_blank">Terms & Conditions</a></li>
+          <li><a href="shipping.html" target="_blank">Shipping Policy</a></li>
+        </ul>
+      </div>
+
+      <!-- Product Categories -->
+      <div class="footer-section products">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="shop.html?category=readyToCookMixes">Ready-to-cook Instant Mixes</a></li>
+          <li><a href="shop.html?category=instantSoup">Instant Soup Mix</a></li>
+          <li><a href="shop.html?category=idliPodi">Idli Podi's</a></li>
+          <li><a href="shop.html?category=instant">Instant Products</a></li>
+          <li><a href="shop.html?category=herbal">Herbal Products</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div class="footer-section follow-us">
+        <h4><i class="fas fa-share-alt"></i> Follow Us</h4>
+        <ul>
+          <li><i class="fab fa-facebook-f"></i> <a href="https://www.facebook.com/ermunaiorganicfoods"
+              target="_blank">Facebook</a></li>
+          <li><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/ermunaiorganic"
+              target="_blank">Instagram</a></li>
+          <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/ermunai-organic-farm-217035363"
+              target="_blank">LinkedIn</a></li>
+          <li><i class="fab fa-youtube"></i> <a href="https://youtube.com/@ermunaiorganicfarm"
+              target="_blank">YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- WhatsApp Order Button -->
+    <div class="whatsapp">
+      <a href="https://wa.me/919841231996" target="_blank">
+        <i class="fab fa-whatsapp"></i> Order on WhatsApp
+      </a>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <p>© 2025 Ermunai Organic Farm Foods. All rights reserved.</p>
+      <p class="footer-links">
+        <a href="privacy.html" target="_blank">Privacy Policy</a> |
+        <a href="terms.html" target="_blank">Terms & Conditions</a> |
+        <a href="shipping.html" target="_blank">Shipping Policy</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    //header
+    const hamburger = document.querySelector(".hamburger");
+    const nav = document.querySelector("header nav");
+    const closeMenu = document.querySelector(".close-menu");
+
+    hamburger.addEventListener("click", () => {
+      nav.classList.add("active");
+    });
+
+    closeMenu.addEventListener("click", () => {
+      nav.classList.remove("active");
+    });
+
+    // ✅ Check login status on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      const user = localStorage.getItem("user"); // Example: "Kesavaram"
+      const loginBtn = document.querySelector(".btn-login");
+      const signupBtn = document.querySelector(".btn-signup");
+      const profile = document.querySelector(".profile");
+      const username = document.querySelector(".username");
+
+      if (user) {
+        // Hide login/signup, show profile
+        loginBtn.style.display = "none";
+        signupBtn.style.display = "none";
+        profile.style.display = "flex";
+        username.textContent = user;
+      } else {
+        // Show login/signup, hide profile
+        loginBtn.style.display = "inline-block";
+        signupBtn.style.display = "inline-block";
+        profile.style.display = "none";
+      }
+
+      // Optional: Logout on profile click
+      const logoutBtn = document.querySelector(".btn-logout");
+
+      logoutBtn.addEventListener("click", () => {
+        if (confirm("Do you want to log out?")) {
+          localStorage.removeItem("user");
+          location.reload();
+        }
+      });
+
+    });
+
+
+  </script>
+
+</body>
+
+</html>
